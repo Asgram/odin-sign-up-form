@@ -1,16 +1,17 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+    --aside-width: 40vw;
+    --form-padding: 5vw;
 }
 
 body {
-    --aside-width: 33vw;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
     color: rgb(51, 51, 51);
-    background-color: rgb(226, 226, 226);
+    background-color:rgb(243, 243, 243);
 
-    line-height: 1.4;
+    line-height: 1.25;
 }
 
 a {
@@ -35,14 +36,46 @@ h2 {
     font-size: 1.4rem;
 }
 
-section h2 {
-    margin-top: 3rem;
+header h1:last-child{
+    margin-bottom: 3rem;
 }
 
 h1.same {
-    margin-bottom: -0.5rem;
+    margin-bottom: 0;
 }
 
+.wrapper{
+    margin-left: var(--aside-width);
+
+    border-left: 1px solid rgb(223, 0, 104);
+    box-shadow: 3px 0 6px inset rgb(78, 78, 78);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 100vh;
+}
+
+header{
+    padding: 0 var(--form-padding);
+}
+
+section#form-wrapper>*{
+    padding: 0 var(--form-padding);
+}
+
+section #form-no-button-wrapper{
+
+    position: relative;
+    z-index: -1;
+
+    background-color: rgb(247, 247, 247);
+    border-bottom: 1px solid gray;
+    box-shadow: 0 4px 5px gray;
+}
+
+/*aside image section*/
 aside {
     width: var(--aside-width);
     height: 100vh;
@@ -50,27 +83,15 @@ aside {
     position: fixed;
     top: 0;
 
-    overflow: hidden;
-    background-color: rgb(223, 0, 104);
-}
+    background-color: rgb(222, 0, 90);
 
-aside .inner {
-    position: relative;
-    float: right;
-    right: 50%;
+    display: flex;
+    align-items: center;
 }
 
 #aside-image {
-    height: 100vh;
-    width: auto;
-
-    position: relative;
-    right: -50%;
-    
-}
-
-.wrapper{
-    margin-left: var(--aside-width);
+    height: auto;
+    width: var(--aside-width);
 }
 
 #citation {
@@ -83,35 +104,4 @@ aside .inner {
 
     color: whitesmoke;
     text-align: center;
-}
-
-/*
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    margin-left: var(--aside-width);
-    padding: 0 25px 0 50px;
-    height: 100vh;
-
-    background-color: rgb(250, 250, 250);
-}
-
-.form-row {
-    display: flex;
-    justify-content: space-between;
-
-    margin-bottom: 20px;
-
-}
-
-header {
-    margin-left: -30px;
-    padding: 30px;
-
-    border: 1px solid rgb(255, 40, 165);
-    border-radius: 2%;
-    box-shadow: 0 0 10px 2px rgb(255, 67, 130);
 }
