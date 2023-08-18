@@ -20,33 +20,55 @@
         <section id="form-wrapper">
             <div id="form-no-button-wrapper">
                 <h2 class="form-subtitle">Let's do this!</h2>
-                <form action="" method="post">
+                <form action="" method="get">
                     <div class="form-style">
                         <div class="form-row">
-                            <label for="user-first-name">First Name:</label>
-                            <input type="text" id="user-first-name" name="first-name" required>
-                            <label for="user-last-name">Last Name:
-                                <span aria-label="required">*</span>
-                            </label>
-                            <input type="text" id="user-last-name" name="last-name" required>
+                            <div class="single-input">
+                                <input type="text" id="user-first-name" name="user-first-name" placeholder="Rick">
+                                <label for="user-first-name">FIRST NAME</label>
+                                <span></span>
+
+                            </div>
+                            <div class="single-input">
+                                <input type="text" id="user-last-name" name="last-name" placeholder="Roll" required>
+                                <label for="user-last-name">LAST NAME</label>
+                                <span></span>
+
+                            </div>
                         </div>
                         <div class="form-row">
-                            <label for="email">Email Address:
-                                <span aria-label="required">*</span>
-                            </label>
-                            <input type="email" id="email" name="email" required>
-                            <label for="phone-number">Phone number:</label>
-                            <input type="phone" id="phone-number" name="phone" required>
+                            <div class="single-input">
+                                <input type="email" id="email" name="email" placeholder="rick.roll@mail.com" required>
+                                <label for="email">EMAIL ADDRESS
+                                    <span aria-label="required"></span>
+                                </label>
+                                <span></span>
+
+                            </div>
+                            <div class="single-input">
+                                <input type="phone" id="phone-number" name="phone">
+                                <label for="phone-number">PHONE NUMBER</label>
+                                <span></span>
+
+                            </div>
                         </div>
                         <div class="form-row">
-                            <label for="password">Password:
-                                <span aria-label="required">*</span>
-                            </label>
-                            <input type="password" id="password" name="password" required>
-                            <label for="password-check">Password check:
-                                <span aria-label="required">*</span>
-                            </label>
-                            <input type="password" id="password-check" name="password-check" required>
+                            <div class="single-input">
+                                <input type="password" id="password" name="password" required>
+                                <label for="password">PASSWORD
+                                    <span aria-label="required"></span>
+                                </label>
+                                <span></span>
+
+                            </div>
+                            <div class="single-input">
+                                <input type="password" id="password-check" name="password-check" required>
+                                <label for="password-check">CONFIRM PASSWORD
+                                    <span aria-label="required"></span>
+                                </label>
+                                <span></span>
+
+                            </div>
                         </div>
                     </div>
             </div>
@@ -54,6 +76,9 @@
                 <button type="submit">
                     Create Account
                 </button>
+                <span class="login-par">or
+                    <a class="login" href="">Log in</a>
+                </span>
             </div>
 
             </form>
@@ -64,10 +89,16 @@
 
         <img id="aside-image" src="img/24002353_6851538.jpg" alt="a supercar with a sunset synthwave background">
 
-        <a id="citation"
-            href="https://www.freepik.com/free-vector/abstract-futuristic-cool-mobile-wallpaper_24002353.htm#query=synthwave%20design&position=15&from_view=search&track=ais">Image
-            by Freepik</a>
-
+        <div id="logo">
+            <img src="img/icons8-logo-150.png" alt="">
+            <p class="logo-writing">.:WAVE INC.</p>
+            
+        </div><div class="citation">
+            <a
+                href="https://www.freepik.com/free-vector/abstract-futuristic-cool-mobile-wallpaper_24002353.htm#query=synthwave%20design&position=15&from_view=search&track=ais">Image
+                by Freepik</a>
+            ;
+            <a target="_blank" href="https://icons8.com/icon/30248/soonvibes">Logo</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></div>
     </aside>
 
     <script src="js/script.js"></script>

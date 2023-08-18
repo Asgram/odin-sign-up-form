@@ -1,17 +1,26 @@
-:root{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+:root {
     --aside-width: 40vw;
     --form-padding: 5vw;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+
     color: rgb(51, 51, 51);
-    background-color:rgb(243, 243, 243);
+    background-color: rgb(255, 246, 246);
 
     line-height: 1.25;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+em {
+    color: rgb(139, 0, 65);
 }
 
 a {
@@ -25,29 +34,33 @@ ul li {
 
 h1,
 h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 h2 {
     font-size: 1.4rem;
 }
 
-header h1:last-child{
-    margin-bottom: 3rem;
+header h1:last-child {
+    margin-bottom: 4rem;
 }
+
+
 
 h1.same {
     margin-bottom: 0;
 }
 
-.wrapper{
+.wrapper {
+    position: relative;
+    z-index: 1;
+
     margin-left: var(--aside-width);
 
-    border-left: 1px solid rgb(223, 0, 104);
     box-shadow: 3px 0 6px inset rgb(78, 78, 78);
 
     display: flex;
@@ -57,20 +70,129 @@ h1.same {
     height: 100vh;
 }
 
-header{
+.wrapper h2 {
+    padding-top: 20px;
+}
+
+header {
     padding: 0 var(--form-padding);
 }
 
-section#form-wrapper>*{
-    padding: 0 var(--form-padding);
+/*form styling*/
+.form-row {
+    margin-bottom: 40px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10%;
 }
 
-section #form-no-button-wrapper{
+.form-row input[type='text'],
+.form-row input[type='email'],
+.form-row input[type="password"],
+.form-row input[type="phone"] {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
 
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.single-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.form-row label {
+    margin-top: 6px;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.form-button {
+    margin-top: 5vh;
+}
+
+.form-button button {
+    padding: 0.8em 1.8em;
+    border: 1px outset gray;
+    border-radius: 15px;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    color: whitesmoke;
+    background-color: rgb(223, 0, 104);
+}
+
+.login-par {
+    margin-left: 2em;
+}
+
+.login-par .login {
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    padding-left: 0.2em;
+}
+
+input~span {
     position: relative;
-    z-index: -1;
+}
 
-    background-color: rgb(247, 247, 247);
+.require-completion {
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    position: absolute;
+    content: "REQUIRED";
+    color: whitesmoke;
+    background-color: rgb(255, 0, 64);
+    padding: 4px 6px;
+    top: -70px;
+    right: -20px;
+}
+
+/*hover*/
+.form-row input[type='text']:hover,
+.form-row input[type='email']:hover,
+.form-row input[type="password"]:hover,
+.form-row input[type="phone"]:hover {
+    border: 1px solid rgb(180, 78, 126);
+}
+
+.form-row input[type='text']:hover+label,
+.form-row input[type='email']:hover+label,
+.form-row input[type="password"]:hover+label,
+.form-row input[type="phone"]:hover+label {
+    color: rgb(141, 0, 66);
+}
+
+a:hover {
+    color: rgb(199, 0, 93);
+}
+
+/*invalid*/
+.form-row input[type='email']:invalid,
+.form-row input[type="password"]:invalid {
+    border: 1px solid red;
+}
+
+/*padding for the form*/
+section#form-wrapper>* {
+    padding: 0 var(--form-padding);
+}
+
+section #form-no-button-wrapper {
+    padding-top: 0.2rem;
+
+    background-color: rgb(252, 252, 252);
     border-bottom: 1px solid gray;
     box-shadow: 0 4px 5px gray;
 }
@@ -94,7 +216,7 @@ aside {
     width: var(--aside-width);
 }
 
-#citation {
+.citation {
     position: absolute;
     bottom: 1.5vh;
 
@@ -103,5 +225,46 @@ aside {
     margin: auto;
 
     color: whitesmoke;
+    font-size: 0.8rem;
     text-align: center;
+}
+
+.citation>* {
+    color: whitesmoke;
+}
+
+
+aside #logo {
+
+    position: absolute;
+    top: 25%;
+
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    max-height: 25vh;
+    width: 100%;
+
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.4);
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+aside #logo img {
+    height: auto;
+    width: auto;
+}
+
+aside #logo .logo-writing {
+    font-size: 3rem;
+    font-weight: 900;
+
+    color: white;
+
 }
