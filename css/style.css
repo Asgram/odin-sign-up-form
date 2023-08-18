@@ -61,7 +61,7 @@ h1.same {
 
     margin-left: var(--aside-width);
 
-    box-shadow: 3px 0 6px inset rgb(78, 78, 78);
+    box-shadow: 13px 0 10px -10px inset rgb(78, 78, 78);
 
     display: flex;
     flex-direction: column;
@@ -79,6 +79,10 @@ header {
 }
 
 /*form styling*/
+input{
+    outline: none;
+}
+
 .form-row {
     margin-bottom: 40px;
 
@@ -97,8 +101,8 @@ header {
     border-radius: 3px;
 
     width: 100%;
-    padding: 7px;
-    font-size: 14px;
+    padding: 0.5em;
+    font-size: 1rem;
 }
 
 .single-input {
@@ -109,26 +113,10 @@ header {
 }
 
 .form-row label {
-    margin-top: 6px;
+    padding-top: 6px;
 
     font-size: 0.8rem;
     font-weight: 700;
-}
-
-.form-button {
-    margin-top: 5vh;
-}
-
-.form-button button {
-    padding: 0.8em 1.8em;
-    border: 1px outset gray;
-    border-radius: 15px;
-
-    font-size: 1.5rem;
-    font-weight: 700;
-
-    color: whitesmoke;
-    background-color: rgb(223, 0, 104);
 }
 
 .login-par {
@@ -146,31 +134,41 @@ input~span {
     position: relative;
 }
 
-.require-completion {
-    font-size: 0.7rem;
+/*button*/
+
+.form-button {
+    margin-top: 5vh;
+}
+
+.form-button button {
+    padding: 0.8em 1.8em;
+    border: 1px outset gray;
+    border-radius: 15px;
+
+    font-size: 1.5rem;
     font-weight: 700;
 
-    position: absolute;
-    content: "REQUIRED";
     color: whitesmoke;
-    background-color: rgb(255, 0, 64);
-    padding: 4px 6px;
-    top: -70px;
-    right: -20px;
+    background-color: rgb(223, 0, 104);
+    box-shadow: 3px 3px rgb(141, 0, 66);
+
 }
 
-/*hover*/
-.form-row input[type='text']:hover,
-.form-row input[type='email']:hover,
-.form-row input[type="password"]:hover,
-.form-row input[type="phone"]:hover {
+.form-button button:hover {
+    background-color: rgb(255, 0, 119);
+    border: 1px solid rgb(141, 0, 66);
+    box-shadow: 3px 3px rgb(141, 0, 66);
+}
+
+/*hover & focus & active*/
+.form-row input:hover,
+.form-row input:focus{
     border: 1px solid rgb(180, 78, 126);
+    box-shadow: 2px 2px rgb(141, 0, 66);
 }
 
-.form-row input[type='text']:hover+label,
-.form-row input[type='email']:hover+label,
-.form-row input[type="password"]:hover+label,
-.form-row input[type="phone"]:hover+label {
+.form-row input:hover+label,
+.form-row input:focus+label{
     color: rgb(141, 0, 66);
 }
 
@@ -179,9 +177,29 @@ a:hover {
 }
 
 /*invalid*/
-.form-row input[type='email']:invalid,
-.form-row input[type="password"]:invalid {
+.form-row input[type='email']:not(:placeholder-shown):invalid,
+.form-row input[type="password"]:not(:placeholder-shown):invalid {
     border: 1px solid red;
+}
+
+/*required*/
+.form-row input:placeholder-shown:required~span::after,
+.form-row input:invalid:required~span::after {
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    position: absolute;
+    content: "REQUIRED";
+    color: whitesmoke;
+    background-color: rgb(255, 0, 64); 
+    padding: 4px 6px;
+    top: -70px;
+    right: 0;
+}
+
+.form-row input:not(:placeholder-shown):invalid:required:focus,
+.form-row input:not(:placeholder-shown):invalid:required:hover {
+    box-shadow: 2px 2px red;
 }
 
 /*padding for the form*/
