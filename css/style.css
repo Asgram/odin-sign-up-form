@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,700;1,700&family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -16,7 +18,7 @@ body {
     background-color: rgb(255, 246, 246);
 
     line-height: 1.25;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 em {
@@ -108,14 +110,17 @@ input{
 .single-input {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
+
+    font-family: 'Alegreya Sans', sans-serif;
 
 }
 
 .form-row label {
     padding-top: 6px;
 
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
     font-weight: 700;
 }
 
@@ -135,12 +140,13 @@ input~span {
 }
 
 /*button*/
-
 .form-button {
     margin-top: 5vh;
 }
 
 .form-button button {
+
+    font-family: 'Montserrat', sans-serif;
     padding: 0.8em 1.8em;
     border: 1px outset gray;
     border-radius: 15px;
@@ -176,30 +182,152 @@ a:hover {
     color: rgb(199, 0, 93);
 }
 
+.form-row input:placeholder-shown+label {
+    position: relative;
+
+    top: -32px;
+    left: 12px;
+
+    transition: 0.3s ease all;
+}
+
+.form-row input:placeholder-shown:hover+label,
+.form-row input:placeholder-shown:focus+label {
+
+    top: 0;
+    left: 0;
+}
+
 /*invalid*/
-.form-row input[type='email']:not(:placeholder-shown):invalid,
-.form-row input[type="password"]:not(:placeholder-shown):invalid {
+.form-row input[type='email']:not(:placeholder-shown):invalid {
     border: 1px solid red;
 }
 
+/*valid*/
+.form-row input[type='email']:not(:placeholder-shown):valid,
+.form-row input[type='text']:not(:placeholder-shown):valid{
+    border: 1px solid green;
+}
+
 /*required*/
-.form-row input:placeholder-shown:required~span::after,
-.form-row input:invalid:required~span::after {
-    font-size: 0.7rem;
+.form-row input:placeholder-shown:required~span::after{
+    font-size: 0.8rem;
     font-weight: 700;
 
     position: absolute;
     content: "REQUIRED";
     color: whitesmoke;
     background-color: rgb(255, 0, 64); 
-    padding: 4px 6px;
-    top: -70px;
-    right: 0;
+    padding: 2px 6px;
+    top: -52px;
+    right: -12px;
+
+    transition: 0.3s ease all;
 }
 
-.form-row input:not(:placeholder-shown):invalid:required:focus,
-.form-row input:not(:placeholder-shown):invalid:required:hover {
+.form-row input:placeholder-shown:required:focus~span::after,
+.form-row input:placeholder-shown:required:hover~span::after {
+
+    top: -75px;
+    right: 0;
+
+}
+
+.form-row input[type="email"]:not(:placeholder-shown):invalid:required~span::after{
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    position: absolute;
+    content: "✖ NOT A VALID ADDRESS";
+    color: red;
+    background-color:  rgb(252, 252, 252);
+    top: -72px;
+    right: 1px;
+}
+
+.form-row input[type='email']:not(:placeholder-shown):invalid:required:focus,
+.form-row input[type='email']:not(:placeholder-shown):invalid:required:hover {
     box-shadow: 2px 2px red;
+}
+
+.form-row input[type='email']:not(:placeholder-shown):invalid:required+label {
+    color: red;
+}
+
+.form-row input[type='email']:not(:placeholder-shown):valid:required~span::after,
+.form-row input[type='text']:not(:placeholder-shown):valid:required~span::after{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    position: absolute;
+    content: "✓";
+    color: green;
+    background-color:  rgb(252, 252, 252);
+    top: -75px;
+    right: 1px;
+}
+
+.form-row input[type='email']:not(:placeholder-shown):valid:required:focus,
+.form-row input[type='email']:not(:placeholder-shown):valid:required:hover,
+.form-row input[type='text']:not(:placeholder-shown):valid:required:focus,
+.form-row input[type='text']:not(:placeholder-shown):valid:required:hover  {
+    box-shadow: 2px 2px green;
+}
+
+.form-row input[type='email']:not(:placeholder-shown):valid:required+label,
+.form-row input[type='text']:not(:placeholder-shown):valid:required+label{
+    color: green;
+}
+
+/*password error or check*/
+.form-row input.check~span::after{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    position: absolute;
+    content: "✓";
+    color: green;
+    background-color:  rgb(252, 252, 252);
+    top: -75px;
+    right: 1px;
+}
+
+.form-row input.check{
+    border: 1px solid green;
+}
+
+.form-row input.check:hover,
+.form-row input.check:focus{
+    box-shadow: 2px 2px green;
+}
+
+.form-row input.check+label{
+    color: green;
+}
+
+.form-row input.error~span::after{
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    position: absolute;
+    content: "✖ PASSWORDS DO NOT MATCH";
+    color: red;
+    background-color:  rgb(252, 252, 252);
+    top: -72px;
+    right: 1px;
+}
+
+.form-row input.error{
+    border: 1px solid red;
+}
+
+.form-row input.error:hover,
+.form-row input.error:focus{
+    box-shadow: 2px 2px red;
+}
+
+.form-row input.error+label{
+    color: red;
 }
 
 /*padding for the form*/
